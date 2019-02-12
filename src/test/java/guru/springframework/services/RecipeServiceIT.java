@@ -1,9 +1,6 @@
 package guru.springframework.services;
 
 import guru.springframework.commands.RecipeCommand;
-import guru.springframework.converters.RecipeCommandToRecipe;
-import guru.springframework.converters.RecipeToRecipeCommand;
-import guru.springframework.repositories.RecipeRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +17,6 @@ public class RecipeServiceIT {
     public static final String NEW_DESCRIPTION = "New description";
     @Autowired
     private RecipeService recipeService;
-    @Autowired
-    private RecipeRepository recipeRepository;
-    @Autowired
-    private RecipeToRecipeCommand recipeToRecipeCommand;
-    @Autowired
-    private RecipeCommandToRecipe recipeCommandToRecipe;
 
     @Test
     @Transactional
