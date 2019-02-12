@@ -1,6 +1,6 @@
 package guru.springframework.controllers;
 
-import guru.springframework.domain.Recipe;
+import guru.springframework.commands.RecipeCommand;
 import guru.springframework.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,8 +12,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * Created by jt on 6/19/17.
@@ -36,7 +35,7 @@ public class RecipeControllerTest {
     @Test
     public void testGetRecipe() throws Exception {
 
-        Recipe recipe = new Recipe();
+        RecipeCommand recipe = new RecipeCommand();
         recipe.setId(1L);
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
@@ -45,6 +44,7 @@ public class RecipeControllerTest {
 
         mockMvc.perform(get("/recipe/show/1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("recipe/show"));
+                .andExpect(view().name("recipe/show"))
+        .andExpect(model().attributeExists("recipe"));
     }
 }
