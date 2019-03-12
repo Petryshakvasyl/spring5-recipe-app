@@ -8,9 +8,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class UnitOfMeasureToUnitOfMeasureCommandTest {
-    public static final String DESCRIPTION = "Desc";
-    public static final long LONG_VALUE = 1L;
+    private static final String DESCRIPTION = "Desc";
+    private static final long LONG_VALUE = 1L;
     UnitOfMeasureToUnitOfMeasureCommand converter;
+
     @Before
     public void setUp() throws Exception {
         converter = new UnitOfMeasureToUnitOfMeasureCommand();
